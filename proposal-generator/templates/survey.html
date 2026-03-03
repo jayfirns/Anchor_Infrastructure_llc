@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Discovery Survey — Anchor Infrastructure{% endblock %}
+
+{% block content %}
+<div class="container survey-container">
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Loading questions...</p>
+    </div>
+
+    <div id="survey" style="display:none;">
+        <div class="progress-text" id="progress-text"></div>
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div id="category-container"></div>
+
+        <div class="nav-buttons">
+            <button class="btn btn-secondary" id="btn-prev" style="display:none;">Back</button>
+            <div></div>
+            <button class="btn btn-primary" id="btn-next">Next</button>
+        </div>
+    </div>
+
+    <!-- Contact form (shown on last step before submit) -->
+    <div id="contact-step" style="display:none;">
+        <h2 class="category-title">Almost done</h2>
+        <p class="category-description">Optional: tell us who you are so we can follow up.</p>
+
+        <div class="contact-form">
+            <div class="form-group">
+                <label for="client_name">Organization name</label>
+                <input type="text" id="client_name" placeholder="Your organization">
+            </div>
+            <div class="form-group">
+                <label for="contact_email">Contact email (optional)</label>
+                <input type="email" id="contact_email" placeholder="you@example.com">
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <button class="btn btn-secondary" id="btn-back-contact">Back</button>
+            <button class="btn btn-success" id="btn-submit">See Results</button>
+        </div>
+    </div>
+
+    <!-- Submitting state -->
+    <div id="submitting" style="display:none;">
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>Scoring your responses...</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/survey.js"></script>
+{% endblock %}

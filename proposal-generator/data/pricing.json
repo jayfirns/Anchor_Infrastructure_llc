@@ -1,0 +1,58 @@
+{
+  "anchor_seed": {
+    "discovery_fee": {"min": 0, "max": 250, "default": 0},
+    "implementation_fee": {"min": 250, "max": 750, "default": 500},
+    "monthly_retainer": {"min": 150, "max": 350, "default": 200},
+    "included_hours": {"min": 2, "max": 4, "default": 3},
+    "overage_rate": {"min": 100, "max": 125, "default": 100},
+    "hardware_estimate": {"min": 0, "max": 0, "note": "Client-provided hardware. No procurement or handling fee."}
+  },
+  "anchor_node": {
+    "discovery_fee": {"min": 500, "max": 1500, "default": 750},
+    "implementation_fee": {"min": 2000, "max": 5000, "default": 3000},
+    "monthly_retainer": {"min": 500, "max": 1200, "default": 750},
+    "included_hours": {"min": 5, "max": 10, "default": 8},
+    "overage_rate": {"min": 125, "max": 175, "default": 150},
+    "hardware_estimate": {"min": 200, "max": 800, "note": "Purchased at cost + 5-10% handling fee. Client owns all hardware."}
+  },
+  "anchor_hybrid": {
+    "discovery_fee": {"min": 1000, "max": 2500, "default": 1500},
+    "implementation_fee": {"min": 4000, "max": 10000, "default": 6000},
+    "monthly_retainer": {"min": 1000, "max": 2500, "default": 1500},
+    "included_hours": {"min": 10, "max": 15, "default": 12},
+    "overage_rate": {"min": 150, "max": 200, "default": 175},
+    "hardware_estimate": {"min": 700, "max": 1500, "note": "Includes NAS for offsite replication target. Purchased at cost + handling."}
+  },
+  "anchor_enterprise": {
+    "discovery_fee": {"min": 2000, "max": 5000, "default": 3000},
+    "implementation_fee": {"min": 8000, "max": 25000, "default": 12000},
+    "monthly_retainer": {"min": 2500, "max": 6000, "default": 3500},
+    "included_hours": {"min": 15, "max": 25, "default": 20},
+    "overage_rate": {"min": 175, "max": 250, "default": 200},
+    "hardware_estimate": {"min": 1200, "max": 3000, "note": "Includes HA cluster nodes and NAS. Purchased at cost + handling."}
+  },
+  "pricing_factors": {
+    "data_sensitivity": {
+      "general": 1.0,
+      "regulated": 1.2,
+      "highly_sensitive": 1.35
+    },
+    "uptime_requirements": {
+      "business_hours": 1.0,
+      "extended": 1.15,
+      "near_24_7": 1.35
+    },
+    "complexity": {
+      "under_5_services": 1.0,
+      "5_15_services": 1.15,
+      "15_plus_services": 1.3
+    }
+  },
+  "add_ons": [
+    {"name": "After-hours emergency response", "monthly": 300, "description": "On-call coverage outside business hours with defined response times"},
+    {"name": "Full DR drill (Tier 1/2)", "per_drill": 500, "description": "Client-participated disaster recovery simulation with drill report"},
+    {"name": "Compliance preparation", "project": "2000-5000", "description": "Documentation and controls alignment for a specific compliance framework"},
+    {"name": "Infrastructure migration", "project": "2000-8000", "description": "Migration from existing provider or architecture to Anchor-managed infrastructure"},
+    {"name": "One-time security assessment", "project": "1500-3000", "description": "Point-in-time infrastructure assessment against the security baseline"}
+  ]
+}

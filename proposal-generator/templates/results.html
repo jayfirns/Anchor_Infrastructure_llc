@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Your Results — Anchor Infrastructure{% endblock %}
+
+{% block content %}
+<div class="container results-container">
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Loading results...</p>
+    </div>
+    <div id="results" style="display:none;"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/results.js"></script>
+{% endblock %}

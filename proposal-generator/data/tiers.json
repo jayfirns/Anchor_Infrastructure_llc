@@ -1,0 +1,132 @@
+{
+  "anchor_seed": {
+    "name": "Anchor Seed",
+    "tagline": "Entry-level managed infrastructure on hardware you already own",
+    "summary": "A minimal but professionally managed infrastructure deployment on your existing hardware — Raspberry Pi, repurposed laptop, or similar. You gain encrypted backups, DNS filtering, a self-hosted password manager, availability monitoring, and a clear upgrade path — without purchasing new equipment.",
+    "included": [
+      "Docker Compose deployment on your existing hardware (Raspberry Pi, laptop, or similar)",
+      "Security baseline: hardened OS, key-based SSH, fail2ban, firewall default-deny, automatic security updates",
+      "Pi-hole: DNS filtering and local DNS resolution",
+      "Vaultwarden: self-hosted password manager (Bitwarden-compatible)",
+      "Automated daily backups with database-safe methods to local storage (USB drive or second partition)",
+      "Uptime Kuma: service availability monitoring",
+      "Tailscale: secure remote admin access (no public port exposure)",
+      "System baseline document: service inventory, access model, recovery procedures",
+      "Automated health check script tailored to your deployment"
+    ],
+    "not_included": [
+      "Hypervisor (Proxmox) — Docker Compose provides service isolation at this tier",
+      "Reverse proxy with wildcard TLS (services accessed via IP:port or Tailscale hostname)",
+      "SIEM (Wazuh) — resource requirements exceed Seed-class hardware",
+      "Offsite or off-host replication (backup is local only)",
+      "Grafana dashboards or detailed metrics collection",
+      "After-hours emergency response",
+      "Monthly manual patching (automated security updates handle this)"
+    ],
+    "sla": {
+      "uptime": "95% monthly (best-effort, hardware-dependent)",
+      "sev1_response": "Next business day",
+      "sev3_response": "2 business days",
+      "maintenance_window": "Agreed weekly or biweekly",
+      "restore_test": "At onboarding"
+    },
+    "timeline": "1-2 weeks from contract to go-live"
+  },
+  "anchor_node": {
+    "name": "Anchor Node",
+    "tagline": "Single-site infrastructure baseline with monitoring, backups, and security hardening",
+    "summary": "A documented, hardened, monitored, and backed-up infrastructure deployment. You gain a clear picture of what you have, confidence that backups work, and a defined point of contact for infrastructure issues.",
+    "included": [
+      "Security baseline: hardened OS, key-based SSH, fail2ban, firewall default-deny, TLS on all public services, encrypted storage",
+      "Automated daily backups with database-appropriate methods and defined retention",
+      "Initial backup restore test performed and documented",
+      "Host-level monitoring: CPU, memory, disk, network for all managed systems",
+      "Service availability monitoring with alerting",
+      "Backup health monitoring via push-based checks",
+      "System baseline document: network diagram, service inventory, access model, credential locations",
+      "Change control: all changes logged with rollback plans",
+      "Monthly patching within agreed maintenance window",
+      "Critical CVE patches within 72 hours"
+    ],
+    "not_included": [
+      "Offsite replication or geographic redundancy",
+      "High-availability configurations (failover, clustering)",
+      "Formal DR drills (backup restore tests are included; full DR simulations are not)",
+      "Compliance certification preparation",
+      "After-hours emergency response (available as add-on)"
+    ],
+    "sla": {
+      "uptime": "99% monthly (business hours)",
+      "sev1_response": "4 business hours",
+      "sev3_response": "Next business day",
+      "maintenance_window": "Agreed weekly or biweekly",
+      "restore_test": "At onboarding, then annually"
+    },
+    "timeline": "2-4 weeks from contract to go-live"
+  },
+  "anchor_hybrid": {
+    "name": "Anchor Hybrid",
+    "tagline": "On-premises infrastructure plus offsite replication with documented DR procedures",
+    "summary": "Everything in Anchor Node, plus geographic redundancy, a tested recovery plan, and reduced risk from site-level events. You gain protection against hardware failure, theft, fire, and flood — with documented evidence.",
+    "included": [
+      "Everything in Anchor Node",
+      "Automated offsite data replication to a geographically separate location",
+      "Disaster recovery procedures documented for each critical service",
+      "Semiannual restore from offsite backup, documented with timestamps and results",
+      "Cross-site replication status monitoring and health checks",
+      "SIEM deployment with file integrity monitoring and authentication correlation",
+      "Quarterly infrastructure reviews: backup health, patch compliance, open items"
+    ],
+    "not_included": [
+      "Automatic failover or high-availability clustering",
+      "Formal change control board",
+      "Compliance certification preparation",
+      "Full DR simulations with client participation (available as add-on)",
+      "24/7 on-call (available as add-on)"
+    ],
+    "sla": {
+      "uptime": "99.5% monthly",
+      "sev1_response": "2 business hours",
+      "sev2_response": "4 business hours",
+      "sev3_response": "Next business day",
+      "rto": "Typically 4-8 hours (defined per client)",
+      "rpo": "Typically 24 hours (defined per client)",
+      "maintenance_window": "Agreed weekly",
+      "restore_test": "Semiannual, documented"
+    },
+    "timeline": "3-6 weeks from contract to go-live"
+  },
+  "anchor_enterprise": {
+    "name": "Anchor Enterprise",
+    "tagline": "Full governance model with high availability, formal DR drills, and structured reporting",
+    "summary": "Full operational governance for organizations that need high availability, formal change control, regular DR drills, and structured reporting. Suitable for compliance requirements, higher uptime needs, or multiple critical services.",
+    "included": [
+      "Everything in Anchor Hybrid",
+      "High-availability failover configurations for critical services",
+      "Formal change advisory process with documented approval chain",
+      "Quarterly DR drills with client participation and drill reports",
+      "Monthly reporting: uptime, incidents, patching, backup status, open items",
+      "Annual infrastructure-wide security review with findings report",
+      "Application-level health checks, certificate expiry tracking, capacity trend analysis",
+      "Defined incident escalation paths with after-hours coverage"
+    ],
+    "not_included": [
+      "Compliance certification (we prepare, we do not certify)",
+      "Penetration testing (we refer to qualified firms)",
+      "End-user support or help desk",
+      "Application-layer development",
+      "Guaranteed zero downtime"
+    ],
+    "sla": {
+      "uptime": "99.9% monthly",
+      "sev1_response": "1 hour (business hours), 4 hours (after hours)",
+      "sev2_response": "2 business hours",
+      "sev3_response": "Same business day",
+      "rto": "Typically 1-4 hours (defined per client)",
+      "rpo": "Typically 1-4 hours (defined per client)",
+      "dr_drill": "Quarterly, documented with client sign-off",
+      "maintenance_window": "Agreed weekly with emergency exception process"
+    },
+    "timeline": "4-8 weeks from contract to go-live"
+  }
+}

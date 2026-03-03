@@ -1,0 +1,25 @@
+# Environment and secrets
+.env
+*.db
+
+# Generated proposals
+proposal-generator/proposals/*.pdf
+proposal-generator/proposals/*.html
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Claude Code
+CLAUDE.md

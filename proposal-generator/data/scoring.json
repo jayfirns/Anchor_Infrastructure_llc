@@ -1,0 +1,98 @@
+{
+  "dimensions": {
+    "complexity": {
+      "weight": 1,
+      "questions": {
+        "org_size": {"1_5": 0, "6_20": 1, "21_50": 2, "50_plus": 3},
+        "service_count": {"under_5": 0, "5_15": 1, "15_plus": 3},
+        "current_setup": {"none": 0, "all_cloud": 1, "on_prem": 2, "hybrid": 2}
+      },
+      "reasoning_thresholds": {
+        "high": {"min": 5, "text": "Your environment has multiple services and users, requiring structured management and documentation."},
+        "medium": {"min": 2, "text": "Your environment is moderate in complexity — a solid baseline with room to grow."},
+        "low": {"min": 0, "text": "Your environment is relatively simple — a streamlined deployment will cover your needs."}
+      }
+    },
+    "security": {
+      "weight": 1.5,
+      "questions": {
+        "data_sensitivity": {"general": 0, "unsure": 1, "regulated": 2, "highly_sensitive": 3},
+        "security_incident": {"no": 0, "yes_minor": 1, "unsure": 2, "yes_major": 3},
+        "compliance": {"no": 0, "unsure": 1, "yes_general": 2, "yes_specific": 3},
+        "privacy_priority": {"not_important": 0, "nice_to_have": 1, "important": 2, "critical": 3}
+      },
+      "reasoning_thresholds": {
+        "high": {"min": 7, "text": "You handle sensitive data with regulatory or compliance considerations. Enhanced security monitoring (SIEM), formal change control, and documented security baselines are essential."},
+        "medium": {"min": 3, "text": "Your security needs are moderate. A hardened baseline with monitored backups and access controls will protect your data."},
+        "low": {"min": 0, "text": "Your security requirements are straightforward. Standard hardening and backup verification will establish a solid foundation."}
+      }
+    },
+    "availability": {
+      "weight": 1.5,
+      "questions": {
+        "downtime_impact": {"days": 0, "day": 1, "hours": 2, "minutes": 3},
+        "data_loss_tolerance": {"day": 0, "hours": 1, "unsure": 1, "none": 3},
+        "geographic_redundancy": {"no": 0, "unsure": 1, "yes_preferred": 2, "yes_required": 3},
+        "backup_confidence": {"very_confident": 0, "somewhat": 1, "not_confident": 2, "no_backups": 3}
+      },
+      "reasoning_thresholds": {
+        "high": {"min": 7, "text": "Your operations depend on infrastructure availability. High-availability configurations, offsite replication, and tested disaster recovery procedures are recommended."},
+        "medium": {"min": 3, "text": "You need reliable infrastructure with tested backups and defined recovery procedures. Offsite replication would add meaningful protection."},
+        "low": {"min": 0, "text": "Your availability requirements are flexible. Solid local backups with documented recovery will meet your needs."}
+      }
+    },
+    "maturity": {
+      "weight": 0.5,
+      "questions": {
+        "current_provider": {"no_provider": 0, "msp_unhappy": 1, "internal_it": 2, "msp_happy": 2},
+        "biggest_frustration": {"no_issue": 0, "slow_response": 1, "vendor_lock": 1, "no_security": 2, "untested_backups": 2, "no_docs": 2}
+      },
+      "reasoning_thresholds": {
+        "high": {"min": 3, "text": "You have existing IT experience and know what you need — you're looking for a provider that documents, communicates, and delivers."},
+        "medium": {"min": 1, "text": "You've experienced common IT pain points. A structured engagement with clear documentation will address these directly."},
+        "low": {"min": 0, "text": "You're starting fresh — we'll build a solid foundation with full documentation from day one."}
+      }
+    },
+    "budget": {
+      "weight": 0.5,
+      "questions": {
+        "budget_monthly": {"under_200": 0, "200_500": 0, "500_1500": 1, "1500_3000": 2, "3000_plus": 3, "unsure": 1},
+        "hardware_situation": {"pi_or_laptop": 0, "existing": 1, "need_new": 1, "unsure": 1}
+      },
+      "reasoning_thresholds": {
+        "high": {"min": 2, "text": "Your budget supports a comprehensive engagement with enhanced monitoring, DR testing, and ongoing operational support."},
+        "medium": {"min": 1, "text": "Your budget aligns well with a structured baseline engagement including monitoring, backups, and security hardening."},
+        "low": {"min": 0, "text": "We'll focus on the essentials — security baseline, verified backups, and core monitoring — to maximize value within your budget."}
+      }
+    }
+  },
+  "tier_thresholds": {
+    "Anchor Enterprise": 18,
+    "Anchor Hybrid": 10,
+    "Anchor Node": 5,
+    "Anchor Seed": 0
+  },
+  "segment_mapping": {
+    "Regulated Professional Firm": {
+      "org_type": ["professional_firm"],
+      "data_sensitivity": ["regulated", "highly_sensitive"],
+      "compliance": ["yes_specific", "yes_general"]
+    },
+    "Technical Founder": {
+      "org_type": ["tech_company"],
+      "current_setup": ["on_prem", "hybrid"],
+      "success_metric": ["independent"]
+    },
+    "Privacy-Conscious Organization": {
+      "org_type": ["nonprofit"],
+      "privacy_priority": ["critical", "important"],
+      "success_metric": ["independent"]
+    }
+  },
+  "reasoning_templates": {
+    "Regulated Professional Firm": "As a professional firm handling sensitive client data, you need documented security controls, tested recovery procedures, and evidence you can present to clients or regulators. This is exactly what our service delivers.",
+    "Technical Founder": "As a technical leader, you understand what good infrastructure looks like — you just need someone to build and maintain it so you can focus on your business. We design for transparency and eventual independence.",
+    "Privacy-Conscious Organization": "Data sovereignty is core to your mission. We build infrastructure on hardware you control, with self-hosted services and minimal third-party exposure. Everything is documented for full transparency.",
+    "General": "Your organization needs reliable, documented infrastructure with tested backups and clear security controls. We'll build a baseline tailored to your specific requirements."
+  }
+}

@@ -1,0 +1,230 @@
+{
+  "categories": [
+    {
+      "id": "org_profile",
+      "title": "Organization Profile",
+      "description": "Tell us about your organization so we can understand your scale and context.",
+      "questions": [
+        {
+          "id": "org_type",
+          "text": "Which best describes your organization?",
+          "type": "single",
+          "options": [
+            {"value": "professional_firm", "label": "Professional firm (law, accounting, healthcare, financial)"},
+            {"value": "tech_company", "label": "Technology company or startup"},
+            {"value": "nonprofit", "label": "Nonprofit, advocacy, or journalism organization"},
+            {"value": "other", "label": "Other small business or organization"}
+          ]
+        },
+        {
+          "id": "org_size",
+          "text": "How many people rely on your technology day-to-day?",
+          "type": "single",
+          "options": [
+            {"value": "1_5", "label": "1-5"},
+            {"value": "6_20", "label": "6-20"},
+            {"value": "21_50", "label": "21-50"},
+            {"value": "50_plus", "label": "More than 50"}
+          ]
+        },
+        {
+          "id": "data_sensitivity",
+          "text": "What type of data does your organization handle?",
+          "type": "single",
+          "options": [
+            {"value": "general", "label": "General business data (internal docs, email, scheduling)"},
+            {"value": "regulated", "label": "Regulated data (legal, health, financial records)"},
+            {"value": "highly_sensitive", "label": "Highly sensitive (PII, attorney-client, medical records)"},
+            {"value": "unsure", "label": "Not sure what category our data falls into"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "current_infra",
+      "title": "Current Infrastructure",
+      "description": "Understanding what you have today helps us design what comes next.",
+      "questions": [
+        {
+          "id": "current_setup",
+          "text": "Where does your infrastructure live today?",
+          "type": "single",
+          "options": [
+            {"value": "all_cloud", "label": "Everything is in the cloud (Google, Microsoft, AWS, etc.)"},
+            {"value": "on_prem", "label": "We have on-premises servers or equipment"},
+            {"value": "hybrid", "label": "Mix of cloud services and on-premises equipment"},
+            {"value": "none", "label": "We don't really have formal infrastructure"}
+          ]
+        },
+        {
+          "id": "service_count",
+          "text": "How many distinct services or applications does your team use daily?",
+          "type": "single",
+          "options": [
+            {"value": "under_5", "label": "Under 5"},
+            {"value": "5_15", "label": "5-15"},
+            {"value": "15_plus", "label": "More than 15"}
+          ]
+        },
+        {
+          "id": "current_provider",
+          "text": "Do you currently have an IT provider or managed service provider (MSP)?",
+          "type": "single",
+          "options": [
+            {"value": "no_provider", "label": "No — we handle IT ourselves or don't have formal IT support"},
+            {"value": "msp_unhappy", "label": "Yes, but we're not satisfied with the service"},
+            {"value": "msp_happy", "label": "Yes, and the relationship is working well"},
+            {"value": "internal_it", "label": "We have an internal IT person or team"}
+          ]
+        },
+        {
+          "id": "biggest_frustration",
+          "text": "What is your biggest frustration with your current IT setup?",
+          "type": "single",
+          "options": [
+            {"value": "no_docs", "label": "No documentation — nobody knows the full picture"},
+            {"value": "untested_backups", "label": "We're not confident our backups would actually work"},
+            {"value": "slow_response", "label": "Slow or unresponsive support from our current provider"},
+            {"value": "vendor_lock", "label": "We feel locked into a vendor or platform we can't easily leave"},
+            {"value": "no_security", "label": "We don't know how secure our infrastructure really is"},
+            {"value": "no_issue", "label": "Things are mostly working fine"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "title": "Security Posture",
+      "description": "Security is built into everything we do. These questions help us understand your current posture and needs.",
+      "questions": [
+        {
+          "id": "security_incident",
+          "text": "Have you experienced a security incident, data loss, or extended outage in the past two years?",
+          "type": "single",
+          "options": [
+            {"value": "yes_major", "label": "Yes — it caused significant disruption or data loss"},
+            {"value": "yes_minor", "label": "Yes — but it was minor or quickly resolved"},
+            {"value": "no", "label": "No"},
+            {"value": "unsure", "label": "We're not sure — we might not have detected one"}
+          ]
+        },
+        {
+          "id": "backup_confidence",
+          "text": "If your primary server or service failed right now, how confident are you in recovery?",
+          "type": "single",
+          "options": [
+            {"value": "very_confident", "label": "Very confident — we have tested backups and a documented plan"},
+            {"value": "somewhat", "label": "Somewhat — we have backups but haven't tested recovery"},
+            {"value": "not_confident", "label": "Not confident — backups may exist but we don't know the state"},
+            {"value": "no_backups", "label": "We don't have reliable backups"}
+          ]
+        },
+        {
+          "id": "compliance",
+          "text": "Do you have compliance or regulatory requirements for your infrastructure?",
+          "type": "single",
+          "options": [
+            {"value": "yes_specific", "label": "Yes — specific framework (HIPAA, SOC 2, PCI-DSS, etc.)"},
+            {"value": "yes_general", "label": "Yes — general best-practice expectations from clients or partners"},
+            {"value": "no", "label": "No formal requirements"},
+            {"value": "unsure", "label": "Not sure"}
+          ]
+        },
+        {
+          "id": "privacy_priority",
+          "text": "How important is data sovereignty — keeping data on infrastructure you own and control?",
+          "type": "single",
+          "options": [
+            {"value": "critical", "label": "Critical — it's a core organizational value or requirement"},
+            {"value": "important", "label": "Important — we'd prefer it but can be flexible"},
+            {"value": "nice_to_have", "label": "Nice to have but not a priority"},
+            {"value": "not_important", "label": "Not important — we're comfortable with cloud storage"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "availability",
+      "title": "Availability and Recovery",
+      "description": "Understanding your tolerance for downtime helps us design the right level of resilience.",
+      "questions": [
+        {
+          "id": "downtime_impact",
+          "text": "If your primary systems were down, how long could your organization operate?",
+          "type": "single",
+          "options": [
+            {"value": "minutes", "label": "Minutes — immediate impact on operations or revenue"},
+            {"value": "hours", "label": "Hours — significant disruption but could manage briefly"},
+            {"value": "day", "label": "A day — inconvenient but manageable"},
+            {"value": "days", "label": "Multiple days — we could get by with workarounds"}
+          ]
+        },
+        {
+          "id": "data_loss_tolerance",
+          "text": "How much data loss could you tolerate in a disaster scenario?",
+          "type": "single",
+          "options": [
+            {"value": "none", "label": "None — we need near-real-time protection"},
+            {"value": "hours", "label": "A few hours of data"},
+            {"value": "day", "label": "Up to a day of data"},
+            {"value": "unsure", "label": "We haven't thought about this"}
+          ]
+        },
+        {
+          "id": "geographic_redundancy",
+          "text": "Do you need your data replicated to a second physical location?",
+          "type": "single",
+          "options": [
+            {"value": "yes_required", "label": "Yes — geographic redundancy is required"},
+            {"value": "yes_preferred", "label": "Yes — we'd prefer it for disaster protection"},
+            {"value": "no", "label": "No — single-site is acceptable"},
+            {"value": "unsure", "label": "Not sure"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "title": "Budget and Priorities",
+      "description": "Honest answers here help us recommend the right scope — not over-engineer or under-deliver.",
+      "questions": [
+        {
+          "id": "budget_monthly",
+          "text": "What is your approximate monthly budget for managed infrastructure services?",
+          "type": "single",
+          "options": [
+            {"value": "under_200", "label": "Under $200/month"},
+            {"value": "200_500", "label": "$200-$500/month"},
+            {"value": "500_1500", "label": "$500-$1,500/month"},
+            {"value": "1500_3000", "label": "$1,500-$3,000/month"},
+            {"value": "3000_plus", "label": "Over $3,000/month"},
+            {"value": "unsure", "label": "We need help scoping this"}
+          ]
+        },
+        {
+          "id": "hardware_situation",
+          "text": "Do you have existing server hardware, or would new equipment be needed?",
+          "type": "single",
+          "options": [
+            {"value": "pi_or_laptop", "label": "We have a Raspberry Pi or an old laptop we could use"},
+            {"value": "existing", "label": "We have existing server or desktop hardware that might be usable"},
+            {"value": "need_new", "label": "We'd need new equipment"},
+            {"value": "unsure", "label": "Not sure what's needed"}
+          ]
+        },
+        {
+          "id": "success_metric",
+          "text": "What does success look like for you in six months?",
+          "type": "single",
+          "options": [
+            {"value": "documented", "label": "Our infrastructure is documented, secured, and we know it works"},
+            {"value": "independent", "label": "We own our infrastructure and can operate independently of any vendor"},
+            {"value": "compliant", "label": "We can demonstrate our security posture to clients or auditors"},
+            {"value": "reliable", "label": "We stop worrying about outages and focus on our business"},
+            {"value": "all", "label": "All of the above"}
+          ]
+        }
+      ]
+    }
+  ]
+}
