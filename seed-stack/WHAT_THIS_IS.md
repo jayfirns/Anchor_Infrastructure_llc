@@ -40,6 +40,6 @@ All credit goes to those projects and their communities.
 
 ## Want Help?
 
-If this is exciting but the maintenance part sounds like work, that's the gap between "running" and "managed." [Anchor Infrastructure](https://anchorinfrastructure.com) does the managed part.
+If this is exciting but the maintenance part sounds like work, that's the gap between "running" and "managed." Anchor Infrastructure does the managed part.
 
 Run the [Proposal Generator](../proposal-generator/) to see what tier of service fits your situation. It runs locally — no data leaves your machine.

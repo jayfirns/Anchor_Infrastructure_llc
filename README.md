@@ -57,7 +57,7 @@ Those warnings aren't bugs — they're the gap between "running" and "production
 If you look at those warnings and think:
 
 - **"I'll figure it out myself"** — respect. The [docs](docs/) will help, and every one of those warnings links to a guide.
-- **"I'd rather pay someone who already knows"** — that's what [Anchor Infrastructure](https://anchorinfrastructure.com) does.
+- **"I'd rather pay someone who already knows"** — that's what Anchor Infrastructure does.
 
 Run the **[Proposal Generator](proposal-generator/)** on your own machine. It's a local survey that assesses your situation and recommends a service tier — no data leaves your computer, no email required.
 
