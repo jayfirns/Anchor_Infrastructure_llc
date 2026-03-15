@@ -8,11 +8,9 @@
 
 ## Executive Summary
 
-Based on our discovery assessment, we recommend **{{ recommended_tier }}** for {{ client_name }}.
-
 {{ reasoning }}
 
----
+<div style="page-break-after: always;"></div>
 
 ## Recommended Service: {{ recommended_tier }}
 
@@ -20,15 +18,14 @@ Based on our discovery assessment, we recommend **{{ recommended_tier }}** for {
 
 ### What You Get
 
-{% for item in tier.included %}
+{%- for item in tier.included %}
 - {{ item }}
-{% endfor %}
+{%- endfor %}
 
 ### What Is Not Included
-
-{% for item in tier.not_included %}
+{%- for item in tier.not_included %}
 - {{ item }}
-{% endfor %}
+{%- endfor %}
 
 ---
 
@@ -92,8 +89,9 @@ Ongoing management: patching, monitoring, incident response, periodic security r
 
 | Metric | Target |
 |--------|--------|
-{% for key, value in tier.sla.items() %}| {{ key | replace('_', ' ') | title }} | {{ value }} |
-{% endfor %}
+{%- for key, value in tier.sla.items() %}
+| {{ key | sla_label }} | {{ value }} |
+{%- endfor %}
 
 *Full SLA terms are documented in the service agreement, including exclusions, severity definitions, and client responsibilities.*
 

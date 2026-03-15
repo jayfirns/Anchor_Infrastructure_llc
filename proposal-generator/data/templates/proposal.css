@@ -67,13 +67,15 @@ hr {
     margin: 24px 0;
 }
 
-ul {
+ul, ol {
     padding-left: 20px;
     margin-bottom: 12px;
+    break-inside: avoid;
 }
 
 li {
     margin-bottom: 4px;
+    break-inside: avoid;
 }
 
 table {

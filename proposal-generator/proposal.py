@@ -64,6 +64,7 @@ def generate_proposal(
 
     # Render markdown from template
     env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
+    env.filters["sla_label"] = _sla_label
     template = env.get_template("proposal.md")
     markdown_content = template.render(**context)
 
@@ -112,6 +113,14 @@ def generate_proposal(
         print("[proposal] weasyprint not installed — saved as HTML")
 
     return pdf_path
+
+
+def _sla_label(key: str) -> str:
+    """Format SLA keys for display, preserving acronyms."""
+    acronyms = {"rto": "RTO", "rpo": "RPO", "dr_drill": "DR Drill"}
+    if key in acronyms:
+        return acronyms[key]
+    return key.replace("_", " ").title()
 
 
 def _tier_key(tier_name: str) -> str:
