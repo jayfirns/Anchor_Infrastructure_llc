@@ -3,26 +3,26 @@
     "complexity": {
       "weight": 1,
       "questions": {
-        "org_size": {"1_5": 0, "6_20": 1, "21_50": 2, "50_plus": 3},
-        "service_count": {"under_5": 0, "5_15": 1, "15_plus": 3},
+        "org_size": {"just_me": 0, "1_5": 0, "6_20": 1, "21_50": 2, "50_plus": 3},
+        "cloud_services": {"minimal": 0, "streaming_heavy": 0, "some_cloud": 1, "all_in": 1},
         "current_setup": {"none": 0, "all_cloud": 1, "on_prem": 2, "hybrid": 2}
       },
       "reasoning_thresholds": {
-        "high": {"min": 5, "text": "Your environment has multiple services and users, requiring structured management and documentation."},
+        "high": {"min": 4, "text": "Your environment has multiple services and users, requiring structured management and documentation."},
         "medium": {"min": 2, "text": "Your environment is moderate in complexity — a solid baseline with room to grow."},
-        "low": {"min": 0, "text": "Your environment is relatively simple — a streamlined deployment will cover your needs."}
+        "low": {"min": 0, "text": "Your setup is straightforward — a streamlined deployment will cover your needs."}
       }
     },
     "security": {
       "weight": 1.5,
       "questions": {
-        "data_sensitivity": {"general": 0, "unsure": 1, "regulated": 2, "highly_sensitive": 3},
+        "data_sensitivity": {"personal": 0, "general": 0, "unsure": 1, "regulated": 2, "highly_sensitive": 3},
         "security_incident": {"no": 0, "yes_minor": 1, "unsure": 2, "yes_major": 3},
         "compliance": {"no": 0, "unsure": 1, "yes_general": 2, "yes_specific": 3},
         "privacy_priority": {"not_important": 0, "nice_to_have": 1, "important": 2, "critical": 3}
       },
       "reasoning_thresholds": {
-        "high": {"min": 7, "text": "You handle sensitive data with regulatory or compliance considerations. Enhanced security monitoring (SIEM), formal change control, and documented security baselines are essential."},
+        "high": {"min": 7, "text": "You handle sensitive data with regulatory or compliance considerations. Enhanced security monitoring, formal change control, and documented security baselines are essential."},
         "medium": {"min": 3, "text": "Your security needs are moderate. A hardened baseline with monitored backups and access controls will protect your data."},
         "low": {"min": 0, "text": "Your security requirements are straightforward. Standard hardening and backup verification will establish a solid foundation."}
       }
@@ -44,20 +44,20 @@
     "maturity": {
       "weight": 0.5,
       "questions": {
-        "current_provider": {"no_provider": 0, "msp_unhappy": 1, "internal_it": 2, "msp_happy": 2},
-        "biggest_frustration": {"no_issue": 0, "slow_response": 1, "vendor_lock": 1, "no_security": 2, "untested_backups": 2, "no_docs": 2}
+        "current_provider": {"no_provider": 0, "tech_friend": 0, "msp_unhappy": 1, "internal_it": 2, "msp_happy": 2},
+        "biggest_frustration": {"no_issue": 0, "cost": 0, "no_control": 0, "slow_response": 1, "vendor_lock": 1, "no_security": 2, "untested_backups": 2, "no_docs": 2}
       },
       "reasoning_thresholds": {
-        "high": {"min": 3, "text": "You have existing IT experience and know what you need — you're looking for a provider that documents, communicates, and delivers."},
-        "medium": {"min": 1, "text": "You've experienced common IT pain points. A structured engagement with clear documentation will address these directly."},
+        "high": {"min": 3, "text": "You have IT experience and know what you need — you're looking for a provider that documents, communicates, and delivers."},
+        "medium": {"min": 1, "text": "You've felt common IT pain points. A structured engagement with clear documentation will address these directly."},
         "low": {"min": 0, "text": "You're starting fresh — we'll build a solid foundation with full documentation from day one."}
       }
     },
     "budget": {
       "weight": 0.5,
       "questions": {
-        "budget_monthly": {"under_200": 0, "200_500": 0, "500_1500": 1, "1500_3000": 2, "3000_plus": 3, "unsure": 1},
-        "hardware_situation": {"pi_or_laptop": 0, "existing": 1, "need_new": 1, "unsure": 1}
+        "budget_monthly": {"nothing": 0, "under_200": 0, "200_500": 0, "500_1500": 1, "1500_3000": 2, "3000_plus": 3, "unsure": 1},
+        "hardware_situation": {"pi": 0, "old_computer": 0, "mini_pc_curious": 0, "existing_server": 1, "need_new": 1, "no_idea": 1}
       },
       "reasoning_thresholds": {
         "high": {"min": 2, "text": "Your budget supports a comprehensive engagement with enhanced monitoring, DR testing, and ongoing operational support."},
@@ -73,6 +73,11 @@
     "Anchor Seed": 0
   },
   "segment_mapping": {
+    "Self-Hosting Enthusiast": {
+      "org_type": ["individual", "family"],
+      "privacy_priority": ["critical", "important"],
+      "hardware_situation": ["pi", "old_computer", "mini_pc_curious"]
+    },
     "Regulated Professional Firm": {
       "org_type": ["professional_firm"],
       "data_sensitivity": ["regulated", "highly_sensitive"],
@@ -86,13 +91,14 @@
     "Privacy-Conscious Organization": {
       "org_type": ["nonprofit"],
       "privacy_priority": ["critical", "important"],
-      "success_metric": ["independent"]
+      "success_metric": ["independent", "own_my_data"]
     }
   },
   "reasoning_templates": {
+    "Self-Hosting Enthusiast": "You want to own your data and you're willing to learn. The Seed Stack gets you started with real services on hardware you already have. We set it up right, secure it, automate the backups, and hand you the keys — with documentation so you understand exactly what's running.",
     "Regulated Professional Firm": "As a professional firm handling sensitive client data, you need documented security controls, tested recovery procedures, and evidence you can present to clients or regulators. This is exactly what our service delivers.",
     "Technical Founder": "As a technical leader, you understand what good infrastructure looks like — you just need someone to build and maintain it so you can focus on your business. We design for transparency and eventual independence.",
     "Privacy-Conscious Organization": "Data sovereignty is core to your mission. We build infrastructure on hardware you control, with self-hosted services and minimal third-party exposure. Everything is documented for full transparency.",
-    "General": "Your organization needs reliable, documented infrastructure with tested backups and clear security controls. We'll build a baseline tailored to your specific requirements."
+    "General": "Based on your responses, here's what we'd recommend. We'll build a baseline tailored to your specific requirements — documented, secured, and recoverable."
   }
 }

@@ -1,6 +1,7 @@
 # Environment and secrets
 .env
 *.db
+seed-stack/.env
 
 # Generated proposals
 proposal-generator/proposals/*.pdf

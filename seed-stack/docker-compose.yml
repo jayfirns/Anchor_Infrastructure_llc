@@ -1,0 +1,60 @@
+# Anchor Seed Stack
+# Three services that replace cloud subscriptions with software you own.
+#
+# Pi-hole:      DNS-level ad/tracker filtering for your entire network
+# Vaultwarden:  Self-hosted password manager (Bitwarden-compatible)
+# Uptime Kuma:  Monitoring dashboard — see if your services are alive
+#
+# Usage:
+#   cp .env.example .env        # Edit with your values
+#   ./setup.sh                  # Or manually: docker compose up -d
+#
+# Update:
+#   docker compose pull && docker compose up -d
+
+services:
+  pihole:
+    image: pihole/pihole:latest
+    container_name: pihole
+    restart: unless-stopped
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "80:80/tcp"
+    environment:
+      TZ: ${TZ:-America/Chicago}
+      WEBPASSWORD: ${PIHOLE_PASSWORD:?Set PIHOLE_PASSWORD in .env}
+    volumes:
+      - pihole_data:/etc/pihole
+      - pihole_dnsmasq:/etc/dnsmasq.d
+    dns:
+      - 127.0.0.1
+      - 1.1.1.1
+
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      SIGNUPS_ALLOWED: ${SIGNUPS_ALLOWED:-true}
+      WEBSOCKET_ENABLED: "true"
+      ADMIN_TOKEN: ${VAULTWARDEN_ADMIN_TOKEN:?Set VAULTWARDEN_ADMIN_TOKEN in .env}
+    volumes:
+      - vaultwarden_data:/data
+
+  uptime-kuma:
+    image: louislam/uptime-kuma:latest
+    container_name: uptime-kuma
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    volumes:
+      - kuma_data:/app/data
+
+volumes:
+  pihole_data:
+  pihole_dnsmasq:
+  vaultwarden_data:
+  kuma_data:
